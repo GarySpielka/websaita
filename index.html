@@ -6,10 +6,15 @@
 <meta name="theme-color" content="#0A1325">
 <meta name="description" content="Spielgeräte im Lokal: Standortprüfung, Genehmigungen, Aufbau und Betreuung für Gastronomie und Gewerbe in Berlin und Brandenburg.">
 <title>Gary Spielautomatenbetrieb</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
+/* Schriften liegen im Ordner "fonts" neben dieser Datei (siehe Anleitung). Fehlt eine Datei, nimmt der Browser die Systemschrift. */
+@font-face{font-family:"Bricolage Grotesque";font-weight:700;font-style:normal;font-display:swap;src:url("fonts/bricolage-grotesque-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"Bricolage Grotesque";font-weight:800;font-style:normal;font-display:swap;src:url("fonts/bricolage-grotesque-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-weight:600;font-style:normal;font-display:swap;src:url("fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;font-style:normal;font-display:swap;src:url("fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2")}
+
 /* Layout: schmale Kopfzeile, Hero mit Typenschild (Geräte-Datenblatt), danach vier Abschnitte in einer Spalte. Dunkles Marineblau, Gold als einziger Akzent. */
 :root{
   color-scheme:dark;
@@ -147,6 +152,22 @@ input:focus,select:focus,textarea:focus{border-color:var(--accent);outline:none;
 
 footer{border-top:1px solid var(--line);padding-block:2rem;font-size:.85rem;color:var(--muted)}
 footer .wrap{display:grid;gap:.5rem}
+footer .legal-links{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
+footer .legal-links a{color:var(--ink);text-underline-offset:3px}
+
+/* Impressum und Datenschutz: eigene Ansichten, aufgerufen über #impressum und #datenschutz */
+.rechtstext{display:none;padding-block:clamp(2rem,5vw,4rem);scroll-margin-top:10rem}
+.rechtstext:target{display:block}
+body:has(.rechtstext:target) main{display:none}
+.rechtstext .wrap{max-width:48rem}
+.rechtstext .back{display:inline-block;margin-bottom:1.5rem;color:var(--accent);text-underline-offset:3px}
+.rechtstext h1{font-size:clamp(2rem,5vw,3rem);font-weight:800}
+.rechtstext h2{font-size:1.25rem;font-weight:700;margin-top:2.25rem}
+.rechtstext h3{font-size:1.05rem;font-weight:700;margin-top:1.25rem}
+.rechtstext p,.rechtstext li{margin-top:.6rem;color:var(--muted);overflow-wrap:anywhere}
+.rechtstext ul{margin:.4rem 0 0;padding-left:1.25rem}
+.rechtstext .stand{margin-top:2.5rem;font-size:.9rem}
+.todo{background:color-mix(in srgb,var(--accent) 22%,transparent);outline:1px dashed var(--accent);padding:0 .3em;border-radius:2px;color:var(--ink)}
 
 @media (max-width:820px){
   .hero .wrap,.pack,.contact{grid-template-columns:minmax(0,1fr)}
@@ -394,10 +415,109 @@ footer .wrap{display:grid;gap:.5rem}
   </section>
 </main>
 
+
+
+<section class="rechtstext" id="impressum" aria-labelledby="h-imp">
+  <div class="wrap">
+    <a class="back" href="#top">← Zur Startseite</a>
+    <h1 id="h-imp">Impressum</h1>
+
+    <h2>Angaben nach § 5 DDG</h2>
+    <p>Gary Spielautomatenbetriebs GmbH<br>Eichborndamm 98<br>13403 Berlin</p>
+
+    <h2>Vertreten durch</h2>
+    <p>Geschäftsführer: Eduard Fedorov</p>
+
+    <h2>Kontakt</h2>
+    <p>Telefon: <span data-fill="phone" class="todo">[Telefonnummer ergänzen]</span><br>
+       E-Mail: <span data-fill="email" class="todo">[E-Mail-Adresse ergänzen]</span></p>
+
+    <h2>Registereintrag</h2>
+    <p>Eingetragen im Handelsregister.<br>Registergericht: Amtsgericht Charlottenburg (Berlin)<br>Registernummer: HRB 69443 B</p>
+
+    <h2>Umsatzsteuer-Identifikationsnummer</h2>
+    <p>Umsatzsteuer-Identifikationsnummer nach § 27a UStG: <span data-fill="ustid" class="todo">[USt-IdNr. ergänzen oder diesen Abschnitt löschen]</span></p>
+
+    <h2>Erlaubnis und Aufsichtsbehörde</h2>
+    <p>Unsere Tätigkeit bedarf der Erlaubnis nach § 33c Abs. 1 der Gewerbeordnung (GewO).<br>
+       Erlaubnis erteilt durch: <span data-fill="erlaubnis" class="todo">[zuständiges Ordnungsamt und Datum der Erlaubnis ergänzen]</span></p>
+
+    <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+    <p>Eduard Fedorov, Anschrift wie oben.</p>
+
+    <h2>Haftung für Links</h2>
+    <p>Unsere Seite enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte übernehmen wir keine Gewähr. Verantwortlich ist immer der jeweilige Anbieter. Bei Bekanntwerden von Rechtsverletzungen entfernen wir solche Links umgehend.</p>
+
+    <h2>Hinweis zu den Inhalten</h2>
+    <p>Die Angaben zu Genehmigungen auf dieser Seite sind allgemeine Informationen und keine Rechtsberatung.</p>
+  </div>
+</section>
+
+<section class="rechtstext" id="datenschutz" aria-labelledby="h-dsg">
+  <div class="wrap">
+    <a class="back" href="#top">← Zur Startseite</a>
+    <h1 id="h-dsg">Datenschutzerklärung</h1>
+
+    <h2>1. Verantwortlicher</h2>
+    <p>Gary Spielautomatenbetriebs GmbH, Eichborndamm 98, 13403 Berlin<br>
+       Geschäftsführer: Eduard Fedorov<br>
+       Telefon: <span data-fill="phone" class="todo">[Telefonnummer ergänzen]</span><br>
+       E-Mail: <span data-fill="email" class="todo">[E-Mail-Adresse ergänzen]</span></p>
+    <p>Einen Datenschutzbeauftragten haben wir nicht benannt.</p>
+
+    <h2>2. Überblick</h2>
+    <p>Wir verarbeiten personenbezogene Daten nur, soweit das für den Betrieb dieser Seite und die Bearbeitung Ihrer Anfragen nötig ist. Diese Seite setzt keine Cookies, nutzt keine Analyse- oder Tracking-Dienste und bindet keine externen Schriften, Karten oder Videos ein.</p>
+
+    <h2>3. Bereitstellung der Seite (Hosting bei GitHub Pages)</h2>
+    <p>Diese Seite wird über GitHub Pages bereitgestellt. Anbieter ist GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Seite verarbeitet GitHub technisch notwendige Daten in Server-Logfiles, insbesondere Ihre IP-Adresse, Datum und Uhrzeit des Abrufs, die aufgerufene Seite sowie Angaben zu Browser und Gerät.</p>
+    <p>Zweck ist die sichere und fehlerfreie Auslieferung der Seite. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO, unser berechtigtes Interesse an einer zuverlässigen und sicheren Darstellung unseres Angebots. Eine Verarbeitung in den USA kann nicht ausgeschlossen werden. Weitere Informationen finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzerklärung von GitHub</a>.</p>
+
+    <h2>4. Anfrage über das Formular</h2>
+    <p>Wenn Sie uns über das Formular eine Standortanfrage senden, verarbeiten wir diese Angaben: Name des Betriebs, Betriebsart, PLZ und Ort, Größe des Gastraums, Öffnungszeiten, Angaben zur Gaststättenerlaubnis und zu vorhandenen Geräten, Ihr Interesse, Ihren Namen, Telefonnummer und E-Mail-Adresse sowie Ihre Nachricht. Pflichtfelder sind markiert. Die Angabe ist freiwillig, ohne sie können wir Ihre Anfrage aber nicht bearbeiten.</p>
+    <p>Zweck ist die Bearbeitung Ihrer Anfrage, die Kontaktaufnahme und die Vorbereitung eines Angebots. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit die Anfrage auf einen Vertragsschluss gerichtet ist, im Übrigen Art. 6 Abs. 1 lit. f DSGVO und Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie durch das Setzen des Häkchens erteilen. Sie können die Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+
+    <h3>Versand über Web3Forms</h3>
+    <p>Beim Absenden übertragen wir Ihre Angaben an den Formular-Dienst Web3Forms (web3forms.com). Der Dienst verarbeitet die Daten in unserem Auftrag, leitet sie per E-Mail an uns weiter und speichert sie in einem Verwaltungsbereich, auf den nur wir Zugriff haben. Dabei wird technisch bedingt auch Ihre IP-Adresse übertragen. Der Anbieter kann Daten auch außerhalb der EU verarbeiten. Weitere Informationen finden Sie in der Datenschutzerklärung von Web3Forms.</p>
+
+    <h3>Vorabbewertung Ihrer Anfrage</h3>
+    <p>Wir sortieren Anfragen vor der Bearbeitung nach festen Regeln vor, etwa nach Betriebsart, Gaststättenerlaubnis und Zahl vorhandener Geräte, und kennzeichnen sie intern mit einer Einstufung. Sie dient nur der Priorisierung. Eine Entscheidung mit rechtlicher Wirkung für Sie ergeht dadurch nicht, jede Anfrage wird von uns persönlich geprüft.</p>
+
+    <h3>Speicherdauer</h3>
+    <p>Wir löschen Ihre Anfrage, sobald der Zweck entfällt, spätestens sechs Monate nach Abschluss der Korrespondenz. Kommt ein Vertrag zustande, bewahren wir die Daten so lange auf, wie es gesetzliche Aufbewahrungspflichten (etwa nach Handels- und Steuerrecht) verlangen.</p>
+
+    <h2>5. Kontakt per E-Mail oder Telefon</h2>
+    <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung des Anliegens. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b oder lit. f DSGVO. Unsere E-Mails werden über einen externen E-Mail-Dienstleister verwaltet, der Daten in unserem Auftrag verarbeitet.</p>
+
+    <h2>6. Cookies und lokale Speicherung</h2>
+    <p>Diese Seite setzt keine Cookies und speichert keine Daten in Ihrem Browser. Ein Einwilligungsbanner ist deshalb nicht nötig.</p>
+
+    <h2>7. Schriften</h2>
+    <p>Die auf der Seite verwendeten Schriften liegen auf unserem eigenen Server. Beim Aufruf wird keine Verbindung zu Google oder anderen Schriftanbietern aufgebaut.</p>
+
+    <h2>8. Links zu anderen Seiten</h2>
+    <p>Wir verlinken auf Seiten von Behörden, etwa service.berlin.de und brandenburg.de. Erst wenn Sie einen solchen Link anklicken, verlassen Sie unsere Seite und es werden Daten an den jeweiligen Anbieter übertragen. Darauf haben wir keinen Einfluss.</p>
+
+    <h2>9. Verschlüsselung</h2>
+    <p>Diese Seite wird über eine verschlüsselte Verbindung (HTTPS) übertragen.</p>
+
+    <h2>10. Ihre Rechte</h2>
+    <p>Sie haben gegenüber uns das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch gegen die Verarbeitung (Art. 21). Beruht eine Verarbeitung auf Ihrer Einwilligung, können Sie diese jederzeit widerrufen. Wenden Sie sich dafür an die oben genannte Kontaktadresse.</p>
+    <p>Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren. Für uns zuständig ist die Berliner Beauftragte für Datenschutz und Informationsfreiheit, Alt-Moabit 59–61, 10555 Berlin, <a href="https://www.datenschutz-berlin.de" target="_blank" rel="noopener">datenschutz-berlin.de</a>.</p>
+
+    <h2>11. Änderungen</h2>
+    <p>Wir passen diese Erklärung an, wenn sich unsere Seite oder die Rechtslage ändert.</p>
+    <p class="stand">Stand: Oktober 2026</p>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
-    <p>Gary Spielautomatenbetrieb, Berlin und Brandenburg.</p>
+    <p>© Gary Spielautomatenbetriebs GmbH, Berlin. Tätig in Berlin und Brandenburg.</p>
     <p>Spielgeräte mit Gewinnmöglichkeit können süchtig machen. Das kostenlose Beratungstelefon zur Glücksspielsucht erreichen Sie unter 0800 1 37 27 00.</p>
+    <nav class="legal-links" aria-label="Rechtliches">
+      <a href="#impressum">Impressum</a>
+      <a href="#datenschutz">Datenschutz</a>
+    </nav>
   </div>
 </footer>
 
@@ -409,8 +529,14 @@ footer .wrap{display:grid;gap:.5rem}
      1. Auf https://web3forms.com die E-Mail-Adresse eintragen, an die Anfragen gehen sollen.
      2. Den Access Key aus der Bestätigungs-E-Mail hier einsetzen.
      Solange der Key leer ist, zeigt das Formular nur die Kopierfunktion an. */
-  var WEB3FORMS_KEY = "60db1a59-0f37-4fd2-8875-6cd48e9d559c";
-  var CONTACT = { email: "", phone: "" };   // optional: erscheint neben dem Formular
+  var WEB3FORMS_KEY = "";
+  // Diese Angaben erscheinen neben dem Formular, im Impressum und in der Datenschutzerklärung.
+  var CONTACT = {
+    email: "",       // z. B. "info@gary-spielautomatenbetrieb.de"
+    phone: "",       // z. B. "030 1234567"
+    ustid: "",       // z. B. "DE123456789", leer lassen und den Abschnitt im Impressum löschen, falls keine vorhanden
+    erlaubnis: ""    // z. B. "Bezirksamt Reinickendorf von Berlin, Ordnungsamt, am 01.12.2026"
+  };
 
   var $ = function(s, r){ return (r || document).querySelector(s); };
   function el(tag, props){
@@ -433,7 +559,22 @@ footer .wrap{display:grid;gap:.5rem}
     if (CONTACT.phone){ box.append(el("div", { text: CONTACT.phone })); any = true; }
     if (CONTACT.email){ box.append(el("div", { text: CONTACT.email })); any = true; }
     box.hidden = !any;
+    // Platzhalter im Impressum und in der Datenschutzerklärung füllen
+    document.querySelectorAll("[data-fill]").forEach(function(n){
+      var val = CONTACT[n.getAttribute("data-fill")];
+      if (val){ n.textContent = val; n.classList.remove("todo"); }
+    });
   })();
+
+  // Beim Wechsel zwischen Startseite und Rechtstexten zum richtigen Ort springen
+  function onHash(){
+    var id = decodeURIComponent(location.hash.slice(1));
+    requestAnimationFrame(function(){
+      var t = id && document.getElementById(id);
+      if (t && !t.classList.contains("rechtstext")) t.scrollIntoView(); else window.scrollTo(0, 0);
+    });
+  }
+  window.addEventListener("hashchange", onHash);
 
   /* ===== Regelbasierte Ersteinschätzung (geht nur in die E-Mail an Gary, nicht an den Besucher) ===== */
   function assess(l){
