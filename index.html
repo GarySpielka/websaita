@@ -529,13 +529,13 @@ body:has(.rechtstext:target) main{display:none}
      1. Auf https://web3forms.com die E-Mail-Adresse eintragen, an die Anfragen gehen sollen.
      2. Den Access Key aus der Bestätigungs-E-Mail hier einsetzen.
      Solange der Key leer ist, zeigt das Formular nur die Kopierfunktion an. */
-  var WEB3FORMS_KEY = "";
+  var WEB3FORMS_KEY = "60db1a59-0f37-4fd2-8875-6cd48e9d559c";
   // Diese Angaben erscheinen neben dem Formular, im Impressum und in der Datenschutzerklärung.
   var CONTACT = {
-    email: "",       // z. B. "info@gary-spielautomatenbetrieb.de"
+    email: "info@gary-spielautomatenbetrieb.de",       // z. B. "info@gary-spielautomatenbetrieb.de"
     phone: "",       // z. B. "030 1234567"
     ustid: "",       // z. B. "DE123456789", leer lassen und den Abschnitt im Impressum löschen, falls keine vorhanden
-    erlaubnis: ""    // z. B. "Bezirksamt Reinickendorf von Berlin, Ordnungsamt, am 01.12.2026"
+    erlaubnis: "Bezirksamt Reinickendorf von Berlin, Ordnungsamt"    // z. B. "Bezirksamt Reinickendorf von Berlin, Ordnungsamt, am 01.12.2026"
   };
 
   var $ = function(s, r){ return (r || document).querySelector(s); };
